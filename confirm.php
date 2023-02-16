@@ -42,7 +42,7 @@
 <html lang="ja">
     <head>
         <meta charset="UTF-8">
-        <title>DOUNUT Shop 確認画面</title>
+        <title>DONUTS Shop 確認画面</title>
     </head>
     <body>
         <div class="form">

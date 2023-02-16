@@ -9,7 +9,7 @@
 <html lang="ja">
     <head>
         <meta charset="utf-8">
-        <title>DOUNUT Shop - CONTACT</title>
+        <title>DONUTS Shop - CONTACT</title>
         <meta name="description" content="ドーナツとドリンクを提供する店舗です。">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- css -->
@@ -85,7 +85,7 @@
 
         <footer>
             <div class="wrapper">
-                <p><small>&copy; 2023 DOUNUTS shop</small></p>
+                <p><small>&copy; 2023 DONUTS shop</small></p>
             </div>
         </footer>
     </body>

@@ -26,7 +26,15 @@
     // エラーメッセージ用言語ファイルを使用する場合に設定
     $mail->setLanguage('ja', 'vendor/phpmailer/phpmailer/language/');
 
+    // お問い合わせ自動保存
+    $dsn = 'mysql:dbname=donuts-shop;host=localhost';
+    $user='root';
+    $password='';
+
     try {
+        // お問い合わせ自動保存
+        $dbh=new PDO($dsn, $user, $password);
+        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         // サーバの設定
         $mail->SMTPDebug = 0; //デバッグの出力を有効に（テスト環境での検証用)
         $mail->isSMTP(); //SMTPを使用
@@ -50,9 +58,17 @@
         $mail->Body = $mail_body;
         $mail->send(); //送信
         session_destroy();
+
+        // お問い合わせ自動保存
+        $sql = 'INSERT INTO contact (name, email, message) VALUES(" '.$name. ' ", " '.$email.' "," '.$message.' ")';
+        $stmt=$dbh->prepare($sql);
+        $stmt->execute();
+
+        $dbh=null;
         
     } catch (Exception $e) {
         // エラーが発生した場合
+        echo 'ただいま障害により大変ご迷惑をお掛けしております。';
         exit;
     }
 ?>

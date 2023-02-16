@@ -1,6 +1,7 @@
 <?php
     require_once( 'vendor/autoload.php');
     Valitron\Validator::lang('ja');
+    session_start();
     // Valitronクラスを実行
     $v = new Valitron\Validator($_POST);
     // 入力必須の項目が記入されているか確認
@@ -16,12 +17,15 @@
                     'email' => 'メールアドレス',
                     'message' => 'メッセージ'
                ]);
+    $_SESSION['name'] = htmlspecialchars($_POST['name']);
+    $_SESSION['email'] = htmlspecialchars($_POST['email']);
+    $_SESSION['message'] = htmlspecialchars($_POST['message']);
     // バリデーションを実行
     if($v->validate()) {
         // 値の受け取り
-        $name = htmlspecialchars($_POST['name']);
-        $email= htmlspecialchars($_POST['email']);
-        $message = htmlspecialchars($_POST['message']);
+        $name = $_SESSION['name'];
+        $email = $_SESSION['email'];
+        $message = $_SESSION['message'];      
     } else {
         $errors = [];
         foreach ($v->errors() as $error) {
@@ -29,9 +33,9 @@
                 $errors[] = $value;
             }
         }
+        $_SESSION['errors'] = $errors;
+        header("location: contact.php");
     }
-    // 完了画面へ値を送る
-    $_SESSION['form_data'] = $_POST;
 ?>
 
 <!DOCTYPE html>
@@ -42,18 +46,18 @@
     </head>
     <body>
         <div class="form">
-            <form method="post" action="">
+            <form method="post" action="submit.php">
                 <div>
                     <label for="name">お名前</label>
-                    <p><?php echo $_POST['name']; ?></p>
+                    <p><?php echo $name; ?></p>
                 </div>
                 <div>
                     <label for="email">メールアドレス</label>
-                    <p><?php echo $_POST['email']; ?></p>
+                    <p><?php echo $email; ?></p>
                 </div>
                 <div>
                     <label for="message">メッセージ</label>
-                    <p><?php echo $_POST['message']; ?></p>
+                    <p><?php echo $message; ?></p>
                 </div>
             </form>
             <form action="contact.php" method="get">

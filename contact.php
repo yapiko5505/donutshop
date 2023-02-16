@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if(isset($_SESSION["errors"])){
+        $errors = $_SESSION["errors"];
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
     <head>
@@ -25,30 +32,30 @@
             </header>
             <div class="wrapper">
                 <h2 class="page-title">Contact</h2>
-                <?php if( $page_flag === 1): ?>
-                    <!-- 確認画面 -->
-                <?php elseif( $page_flag === 2): ?>
-                    <!-- 完了画面 -->
-                <?php else: ?>
+                <?php if(isset($errors)): ?>
+                    <?php foreach($errors as $value): ?>
+                        <?php echo $value; ?><br />
+                    <?php endforeach; ?>    
+                <?php endif; ?>
                 <form  method="post" action="confirm.php">
                     <div>
                         <label for="name">お名前</label>
-                        <input type="text" id="name" name="your-name">
+                        <input type="text" id="name" name="name" value="<?php if(isset($_SESSION['name'])){echo $_SESSION['name'];} ?>">
                     </div>
 
                     <div>
                         <label for="email">メールアドレス</label>
-                        <input type="email" id="email" name="your-email">
+                        <input type="email" id="email" name="email" value="<?php if(isset($_SESSION['email'])){echo $_SESSION['email'];} ?>">
                     </div>
 
                     <div>
                         <label for="message">メッセージ</label>
-                        <textarea id="message" name="your-message"></textarea>
+                        <textarea id="message" name="message"><?php if(isset($_SESSION['message'])){echo($_SESSION['message']);} ?></textarea>
                     </div>
 
                     <input type="submit" class="button" value="送信">
                 </form>
-                <?php endif; ?>
+                <?php session_destroy(); ?>
             </div>
             <!-- /.wrapper -->
 

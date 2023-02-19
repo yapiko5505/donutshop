@@ -32,5 +32,6 @@
 
             $dbh = null;
         ?>
+        <br><a href="../phplogin/staff_top.php">スタッフ管理に戻る</a>
     </body>
 </html>

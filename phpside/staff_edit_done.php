@@ -7,6 +7,7 @@
     <body>
         <?php
 
+            $staff_code=$_POST['code'];
             $staff_name=$_POST['name'];
             $staff_pass=$_POST['password'];
 
@@ -22,16 +23,15 @@
                 $dbh=new PDO($dsn, $user, $password);
                 $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                $sql='INSERT INTO staffs(name, password) VALUES(?, ?)';
+                $sql='UPDATE staffs SET name=?, password=? WHERE code=?';
                 $stmt=$dbh->prepare($sql);
                 $data[]=$staff_name;
                 $data[]=$staff_pass;
+                $data[]=$staff_code;
                 $stmt->execute($data);
 
                 $dbh=null;
 
-                echo htmlspecialchars($staff_name, ENT_QUOTES, 'UTF-8');
-                echo 'さんを追加しました。<br>';
             }
             catch(Exception $e)
             {
@@ -42,6 +42,7 @@
 
         ?>
 
-        <a href="staff_list.php">スタッフ一覧に戻る</a>
+            <p>修正しました。</p><br><br>
+            <a href="staff_list.php">スタッフ一覧に戻る</a>
     </body>
 </html>

@@ -7,11 +7,7 @@
     <body>
         <?php
 
-            $staff_name=$_POST['name'];
-            $staff_pass=$_POST['password'];
-
-            $staff_name=htmlspecialchars($staff_name, ENT_QUOTES, 'UTF-8');
-            $staff_pass=htmlspecialchars($staff_pass, ENT_QUOTES, 'UTF-8');
+            $staff_code=$_POST['code'];
 
             $dsn='mysql:dbname=donuts-shop;host=localhost;charset=utf8';
             $user='root';
@@ -22,16 +18,13 @@
                 $dbh=new PDO($dsn, $user, $password);
                 $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                $sql='INSERT INTO staffs(name, password) VALUES(?, ?)';
+                $sql='DELETE FROM staffs WHERE code=?';
                 $stmt=$dbh->prepare($sql);
-                $data[]=$staff_name;
-                $data[]=$staff_pass;
+                $data[]=$staff_code;
                 $stmt->execute($data);
 
                 $dbh=null;
 
-                echo htmlspecialchars($staff_name, ENT_QUOTES, 'UTF-8');
-                echo 'さんを追加しました。<br>';
             }
             catch(Exception $e)
             {
@@ -42,6 +35,7 @@
 
         ?>
 
-        <a href="staff_list.php">スタッフ一覧に戻る</a>
+            <p>削除しました。</p><br><br>
+            <a href="staff_list.php">スタッフ一覧に戻る</a>
     </body>
 </html>

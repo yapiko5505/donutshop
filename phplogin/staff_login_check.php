@@ -1,17 +1,11 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>DONUTS Shop</title>
-    </head>
-    <body>
+
         <?php
 
-            $staff_code=$_POST['code'];
-            $staff_pass=$_POST['password'];
+            require_once('../kansu/common.php');
 
-            $staff_code=htmlspecialchars($staff_code, ENT_QUOTES, 'UTF-8');
-            $staff_pass=htmlspecialchars($staff_pass, ENT_QUOTES, 'UTF-8');
+            $post=sanitize($_POST);
+            $staff_code=$post['code'];
+            $staff_pass=$post['password'];
 
             $staff_pass=md5($staff_pass);
 
@@ -51,5 +45,4 @@
                 exit();
             }
         ?>
-    </body>
-</html>
+   

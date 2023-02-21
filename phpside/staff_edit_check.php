@@ -23,13 +23,13 @@
     <body>
        <?php
 
-            require_once('../kansu/common/php');
+            require_once('../kansu/common.php');
 
             $post=sanitize($_POST);
-            $staff_code=$_POST['code'];
-            $staff_name=$_POST['name'];
-            $staff_pass=$_POST['password'];
-            $staff_pass2=$_POST['password2'];
+            $staff_code=$post['code'];
+            $staff_name=$post['name'];
+            $staff_pass=$post['password'];
+            $staff_pass2=$post['password2'];
 
             if($staff_name==''){
                 echo 'スタッフ名が入力されていません。';

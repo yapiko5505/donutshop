@@ -23,7 +23,7 @@
     <body>
        <?php
 
-            require_once('./kansu/common.php');
+            require_once('../kansu/common.php');
 
             $post=sanitize($_POST);
             $staff_name=$_POST['name'];

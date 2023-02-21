@@ -10,7 +10,7 @@ body {
     font-family: "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", "sans-serif";
     line-height: 1.7;
     color: #f096a0;
-    background-color: #e0f1f4;
+    background-color: #e0f1f4; 
 }
 
 a {
@@ -91,9 +91,9 @@ a {
 }
 
 #home {
-    background-image: url(../images/cover.JPG);
-    background-color: #e0f1f4;
-    background-blend-mode: multiply;
+    background-image: url(../images/donut12.jpg);
+    background-color: #f3eed5; 
+    background-blend-mode: multiply; 
     min-height: 100vh;
 }
 

@@ -82,6 +82,9 @@
         <h2>お問い合わせ内容</h2>
         <p>お問い合わせいただきありがとうございます。</p>
         <p>送信完了しました。</p>
+        <form action="contact.php" method="get">
+            <button>コンタクトページに戻る</button>
+        </form>
     </body>
 </html>
         

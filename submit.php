@@ -27,7 +27,7 @@
     $mail->setLanguage('ja', 'vendor/phpmailer/phpmailer/language/');
 
     // お問い合わせ自動保存
-    $dsn = 'mysql:dbname=donuts-shop;host=localhost';
+    $dsn = 'mysql:dbname=donutsshop;host=localhost';
     $user='root';
     $password='';
 

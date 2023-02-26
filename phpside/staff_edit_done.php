@@ -30,7 +30,7 @@
             $staff_name=$_POST['name'];
             $staff_pass=$_POST['password'];
 
-            $dsn='mysql:dbname=donuts-shop;host=localhost;charset=utf8';
+            $dsn='mysql:dbname=donutsshop;host=localhost;charset=utf8';
             $user='root';
             $password='';
 

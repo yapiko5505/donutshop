@@ -22,7 +22,7 @@
     </head>
     <body>
         <?php 
-            $dsn='mysql:dbname=donuts-shop;host=localhost';
+            $dsn='mysql:dbname=donutsshop;host=localhost';
             $user='root';
             $password='';
             $dbh=new PDO($dsn, $user, $password);

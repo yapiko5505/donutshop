@@ -23,7 +23,7 @@
     <body>
         <?php
 
-            $dsn='mysql:dbname=donuts-shop;host=localhost;charset=utf8';
+            $dsn='mysql:dbname=donutsshop;host=localhost;charset=utf8';
             $user='root';
             $password='';
 

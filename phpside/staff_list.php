@@ -23,9 +23,9 @@
     <body>
         <?php
 
-            $dsn='mysql:dbname=donutsshop;host=localhost;charset=utf8';
-            $user='root';
-            $password='';
+            $dsn='mysql:dbname=LAA1503403-donutsshop;host=mysql211.phy.lolipop.lan;charset=utf8';
+            $user='LAA1503403';
+            $password='donuts25';
 
             try 
             {

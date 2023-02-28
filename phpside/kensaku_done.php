@@ -24,9 +24,9 @@
         <?php
             $code=$_POST['code'];
 
-            $dsn='mysql:dbname=donutsshop;host=localhost';
-            $user='root';
-            $password='';
+            $dsn='mysql:dbname=LAA1503403-donutsshop;host=mysql211.phy.lolipop.lan';
+            $user='LAA1503403';
+            $password='donuts25';
             $dbh=new PDO($dsn, $user, $password);
 
             $sql='SELECT * FROM contact WHERE code=?';

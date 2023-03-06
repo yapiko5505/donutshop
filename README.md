@@ -3,7 +3,7 @@
 ドーナツとドリンクを扱う店舗のメニューサイトです。
 
 # デモ
-[webサイトを見る]https://www.yapiko-donutsweb-2023.site/
+[webサイトを見る]https://yapiko-donutsweb-2023.site/
 
 ![スクリーンショット](https://user-images.githubusercontent.com/84828867/221393742-be0a3ab4-b8b5-4197-968a-ccfc68fed97d.png)
 
